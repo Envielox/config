@@ -1,0 +1,16 @@
+autoclose.vim @ 107
+        silent! iunmap "
+        silent! iunmap '
+        silent! iunmap `
+        silent! iunmap (
+        silent! iunmap )
+        silent! iunmap [
+        silent! iunmap ]
+        silent! iunmap {
+        silent! iunmap }
+        silent! iunmap <BS>
+        silent! iunmap <C-h>
+        silent! iunmap <Del>
+        silent! iunmap <Esc>
+        silent! iunmap `
+        silent! iunmap {<CR>
