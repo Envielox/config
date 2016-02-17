@@ -411,7 +411,11 @@
 
     set spelllang=en,pl
     set guioptions=
-    set guifont=Source_Code_Pro:h11:cEASTEUROPE
+    if WINDOWS()
+        set guifont=Source_Code_Pro:h11:cEASTEUROPE
+    else
+        set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    endif
 " }
 
 " Formatting {

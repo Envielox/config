@@ -1,9 +1,13 @@
 [user]
-	name = Envielox
-	email = envielox@gmail.com
+    name = Envielox
+    email = envielox@gmail.com
 
 [core]
     editor = vim
+    excludesfile = ~/.gitignore_global
+
+[diff]
+    tool = vimdiff
 
 [alias]
     co = checkout
@@ -13,9 +17,9 @@
     hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
     au = add -u
     lo = log --graph --decorate=full --all
-	
+
 [push]
-	default = simple
+    default = simple
 
 [color]
     ui = true
