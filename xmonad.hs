@@ -120,7 +120,7 @@ myLayout = smartBorders $ onWorkspace "8" imLayout standardLayouts
     tall   = named "tall"   $ avoidStruts basic
     wide   = named "wide"   $ avoidStruts $ Mirror basic
     circle = named "circle" $ avoidStruts circleSimpleDefaultResizable
-    full   = named "full"   $ noBorders Full
+    full   = named "full"   $ avoidStruts $ noBorders Full
  
    -- IM layout (http://pbrisbin.com/posts/xmonads_im_layout)
     imLayout =
@@ -221,7 +221,7 @@ main = do
         logHook = do FI.fadeInactiveLogHook 0xbbbbbbbb
                      dynamicLogWithPP $ xmobarPP {
                            ppOutput = hPutStrLn xmproc
-                         , ppTitle  = xmobarColor "#1793d0" "" . shorten 0
+                         , ppTitle  = xmobarColor "#1793d0" "" . shorten 32
                          , ppUrgent = xmobarColor "yellow" "red" . xmobarStrip
                      }
     }
