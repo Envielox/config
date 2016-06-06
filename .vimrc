@@ -93,15 +93,16 @@
 
     "Plugin 'terryma/vim-multiple-cursors' " TODO ogarnąć to
     "Plugin 'Lokaltog/vim-easymotion' " TODO też ogarnąć
+    "Plugin 'vim-ctrlspace/vim-ctrlspace' "provides nice window with a list of
+    "buffers
 
     "Plugin 'spf13/vim-autoclose' " OR
     "Plugin 'jiangmiao/auto-pairs' " OR
     "Plugin 'Townk/vim-autoclose' " we need to choose best one
 
-
+    Plugin 'vim-scripts/restore_view.vim'
     "Plugin 'vim-scripts/sessionman.vim'
     "Plugin 'godlygeek/csapprox' " Allows using gvim colorschemes in terminal
-    "Plugin 'vim-scripts/restore_view.vim' "Restores cursor position
     "Plugin 'kana/vim-textobj-user'
     "Plugin 'kana/vim-textobj-indent'
 
@@ -293,6 +294,13 @@
 
     " A.vim {
         nnoremap <Leader>h :A<CR>
+    " }
+
+    " Vim Session {
+        set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
+        "nmap <leader>sl :SessionList<CR>
+        "nmap <leader>ss :SessionSave<CR>
+        "nmap <leader>sc :SessionClose<CR>
     " }
 " }
 
