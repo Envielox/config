@@ -477,6 +477,10 @@
     autocmd FileType haskell setlocal nospell
     " }
 
+    " Lisp {
+    autocmd FileType lisp let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
+    " }
+
     autocmd FileType c,cpp,java,javascript,python, autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " }
 
