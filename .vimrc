@@ -117,6 +117,7 @@
        if executable('ctags')
            Plugin 'majutsushi/tagbar' " Viewing functions and methods
        endif
+       Plugin 'rust-lang/rust.vim'
     " }
     " Snippets & AutoComplete {
     "   if count(g:spf13_bundle_groups, 'snipmate')
@@ -481,7 +482,7 @@
     autocmd FileType lisp let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
     " }
 
-    autocmd FileType c,cpp,java,javascript,python, autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    autocmd FileType c,cpp,java,javascript,python,rust autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " }
 
 " Functions {
