@@ -77,6 +77,7 @@
     "Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'ctrlpvim/ctrlp.vim'
     "Plugin 'tacahiroy/ctrlp-funky'
+    Plugin 'rking/ag.vim'
     "Plugin 'Shougo/unite.vim' " TODO ogarnąć to (zastępuje wszystko O.o)
     Plugin 'mbbill/undotree'
     Plugin 'osyo-manga/vim-over' " Hls durring writing substitues
@@ -120,6 +121,8 @@
        Plugin 'rust-lang/rust.vim'
     " }
     " Snippets & AutoComplete {
+        "Plugin 'Shougo/neocomplete.vim'
+
     "   if count(g:spf13_bundle_groups, 'snipmate')
     "       Bundle 'garbas/vim-snipmate'
     "       Bundle 'honza/vim-snippets'
@@ -144,12 +147,8 @@
     "   endif
     " }
     " Python {
-        "TODO
-    "   " Pick either python-mode or pyflakes & pydoc
-    "   Bundle 'klen/python-mode'
-    "   Bundle 'python.vim'
-    "   Bundle 'python_match.vim'
-    "   Bundle 'pythoncomplete'
+       "Plugin 'klen/python-mode' " Nice but slow..., need config
+       "Bundle 'python.vim'
     " }
     " Garbage can {
     " Writing {
@@ -480,6 +479,10 @@
 
     " Lisp {
     autocmd FileType lisp let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
+    " }
+
+    " Python {
+    "autocmd FileType python set sw=4 ts=4 expandtab
     " }
 
     autocmd FileType c,cpp,java,javascript,python,rust autocmd BufWritePre <buffer> call StripTrailingWhitespace()
