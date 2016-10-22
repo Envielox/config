@@ -29,10 +29,13 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
  
 myModMask :: KeyMask
-myModMask = mod1Mask
+myModMask = mod4Mask
 
 myNumlockMask :: KeyMask
 myNumlockMask = mod2Mask
+
+myAltMask :: KeyMask
+myAltMask = mod1Mask
  
 myWorkspaces :: [String]
 myWorkspaces = [ "1.web", "2.code", "3", "4", "5", "6", "7", "8"
@@ -54,7 +57,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
     , ((modMask,               xK_b     ), sendMessage ToggleStruts)
     , ((modMask,               xK_n     ), refresh)
-    , ((modMask,               xK_Tab   ), windows W.focusDown)
+    , ((myAltMask,             xK_Tab   ), windows W.focusDown)
     , ((modMask,               xK_j     ), windows W.focusDown)
     , ((modMask,               xK_k     ), windows W.focusUp  )
     , ((modMask,               xK_m     ), windows W.focusMaster  )
