@@ -1,7 +1,58 @@
-xterm*faceName: Sauce code powerline
-!xterm*font:     xft:Anonymous Pro:pixelsize=12:antialiasing=true
+
+! rxvt-unicode configuration
+urxvt.scrollBar:        false
+urxvt*saveLines:        65535
+urxvt*cursorBlink:      false
+urxvt*urgentOnBell:     true
+! urxvt*override-redirect:false
+! urxvt*borderLess:       true
+! urxvt*internalBorder:       0
+! urxvt*externalBorder:       0
+
+! Extensions
+urxvt*perl-lib:        /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,matcher,searchable-scrollback
+urxvt*searchable-scrollback:    M-r
+urxvt*urlLauncher:     /usr/bin/firefox
+urxvt*matcher.button:  1
+urxvt*modifier:     alt
+
+! Appearance
+urxvt*font:             xft:Sauce Code Powerline:10
+
+!  - pseudo transparency
+! urxvt*shading:    50
+! urxvt*transparent:true
+ 
+! Default colors setup
+! black + red
+urxvt*color0:      #000000
+urxvt*color1:      #e01010
+! green + yellow
+urxvt*color2:      #00AA00
+urxvt*color3:      #FFFF00
+! blue + purple
+urxvt*color4:      #112037
+urxvt*color5:      #A020F0
+! cyan + white
+urxvt*color6:      #5B5BC7
+urxvt*color7:      #fefefe
+! bright-black + bright-red
+urxvt*color8:      #6a6a6a
+urxvt*color9:      #FF5555
+! bright-green + bright-yellow
+urxvt*color10:     #90EE90
+urxvt*color11:     #ffff2f
+! bright-blue + bright-purple
+urxvt*color12:     #5B5BC7
+urxvt*color13:     #e628ba
+! bright-cyan + bright-white
+urxvt*color14:     #7D7DFB
+urxvt*color15:     #ffffff
+
+! Xterm configuration
+!xterm*faceName: Sauce code powerline
 xterm*font:     xft:Sauce code powerline:pixelsize=18:antialiasing=true
-!xterm*font:     xft:Anonymous Pro:pixelsize=11:antialiasing=false
 xterm*transparent: true
 xterm*shading: 16
 
@@ -14,12 +65,8 @@ xterm.cursorColor: #22cc22
 
 xterm*background: white
 xterm*foreground: black
-!xterm*faceName Inconsolanta
-!xterm*faceName: Anonymous Pro
-!xterm*faceSize: 12
 
 xterm*visualBell: false
 
 xterm*locale: true
 xterm*saveLines: 4096
-

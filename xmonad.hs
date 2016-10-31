@@ -23,7 +23,7 @@ import           System.Exit
 import           System.IO
  
 myTerminal :: String
-myTerminal = "xterm"
+myTerminal = "urxvt"
 
 myBorderWidth :: Dimension
 myBorderWidth = 1
