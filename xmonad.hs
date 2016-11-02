@@ -69,6 +69,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_t     ), withFocused $ windows . W.sink)
     , ((modMask,               xK_comma ), sendMessage (IncMasterN 1))
     , ((modMask,               xK_period), sendMessage (IncMasterN (-1)))
+    , ((myAltMask .|. controlMask,xK_l    ), spawn "gnome-screensaver-command -l")
     --, ((0,                    0x1008FF11), spawn "amixer set Master 2-")
     --, ((0,                    0x1008FF13), spawn "amixer set Master 2+")
     , ((modMask .|. shiftMask, xK_q     ), io exitSuccess)
@@ -93,7 +94,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     --
     [ ((modMask,                 xK_f           ), spawn "firefox")
     --, ((modMask,                 xK_m           ), spawn "icedove")
-    , ((modMask,                 xK_e           ), spawn "vim")
+    --, ((modMask,                 xK_e           ), spawn "vim")
     --, ((modMask,                 xK_f           ), spawn "pcmanfm")
     --, ((modMask,                 xK_bracketleft ), spawn "pidgin")
     --, ((modMask,                 xK_bracketright), spawn "skype")
@@ -170,6 +171,7 @@ myFloatHook = composeAll
     , className =? "feh"                   --> doFloat
     , className =? "Firefox"               --> moveToWeb
     , className =? "Vim"                 --> moveToCode
+    , className =? "Thunderbird"           --> moveToMail
     , className =? "Icedove"               --> moveToMail
     , className =? "MPlayer"               --> moveToMedia
     , className =? "Pidgin"                --> moveToIM

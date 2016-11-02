@@ -19,6 +19,7 @@ urxvt*modifier:     alt
 
 ! Appearance
 urxvt*font:             xft:Sauce Code Powerline:10
+urxvt*letterSpace:      -1
 
 !  - pseudo transparency
 ! urxvt*shading:    50
