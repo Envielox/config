@@ -448,7 +448,7 @@
     set spelllang=en,pl
     set guioptions=
     if WINDOWS()
-        set guifont=Source_Code_Pro:h11:cEASTEUROPE
+        set guifont=Sauce_Code_Powerline:h11:cEASTEUROPE:qDRAFT
     else
         set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
     endif
