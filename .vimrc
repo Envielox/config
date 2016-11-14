@@ -92,7 +92,6 @@
 
     Plugin 'b3niup/numbers.vim'
 
-    "Plugin 'terryma/vim-multiple-cursors' " TODO ogarnąć to
     "Plugin 'Lokaltog/vim-easymotion' " TODO też ogarnąć
     "Plugin 'vim-ctrlspace/vim-ctrlspace' "provides nice window with a list of
     "buffers
@@ -107,6 +106,7 @@
     "Plugin 'godlygeek/csapprox' " Allows using gvim colorschemes in terminal
     "Plugin 'kana/vim-textobj-user'
     "Plugin 'kana/vim-textobj-indent'
+    "Plugin 'Olical/vim-syntax-expand' " Maaaybe?
 
     " General Programming {
        Plugin 'scrooloose/syntastic' " Syntax checker
@@ -149,6 +149,10 @@
     " Python {
        "Plugin 'klen/python-mode' " Nice but slow..., need config
        "Bundle 'python.vim'
+    " }
+    " JavaScript {
+        Plugin 'pangloss/vim-javascript'
+        Plugin 'othree/javascript-libraries-syntax.vim'
     " }
     " Garbage can {
     " Writing {
@@ -305,7 +309,7 @@
     " }
 
     " Rainbow {
-        let g:rainbow_active = 1
+        let g:rainbow_active = 0
         let g:rainbow_conf = {
         \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
         \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
@@ -330,6 +334,21 @@
         \}
     " }
 
+    " Vim-Javascript {
+        let g:javascript_conceal_function       = "ƒ"
+        let g:javascript_conceal_null           = "ø"
+        let g:javascript_conceal_this           = "@"
+        let g:javascript_conceal_return         = "⇚"
+        let g:javascript_conceal_undefined      = "¿"
+        let g:javascript_conceal_NaN            = "ℕ"
+        let g:javascript_conceal_prototype      = "¶"
+        "let g:javascript_conceal_static         = "•"
+        let g:javascript_conceal_super          = "Ω"
+        let g:javascript_conceal_arrow_function = "⇒"
+
+        let g:used_javascript_libs = 'underscore'
+    " }
+
 " }
 
 " General {
@@ -339,6 +358,8 @@
     " endif
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
+    set conceallevel=1          " Conceal some words
+    set concealcursor=          " Don't conceal on line with cursor
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     set encoding=utf-8
