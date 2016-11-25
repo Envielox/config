@@ -36,3 +36,49 @@ RPROMPT="[%{$fg_no_bold[green]%}%?%{$reset_color%}]"
 alias ls="ls --color=auto"
 alias la="ls -a --color=auto"
 alias ll="ls -lat --color=auto"
+
+
+export GOPATH=/home/aleksander/.gopath/
+export PATH=${GOPATH//://bin:}/bin:$PATH
+
+export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
+
+# Antibody Instalation
+#curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
+source <(antibody init)
+
+plugins=(autojump command-not-found common-aliases compleat docker fasd git jsontools pip pylint python virtualenvwrapper)
+
+antibody bundle zsh-users/zsh-syntax-highlighting
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=blue,bold
+antibody bundle zsh-users/zsh-completions
+antibody bundle zsh-users/zsh-autosuggestions
+bindkey '^ ' autosuggest-execute
+bindkey '^l' autosuggest-accept
+antibody bundle zsh-users/zsh-history-substring-search
+bindkey '^k' history-beginning-search-backward
+bindkey '^j' history-beginning-search-forward
+bindkey '^p' history-substring-search-up
+
+# z - for jumping around, v - for vim files, autojump for cd's
+antibody bundle clvv/fasd # some help with selecting paths
+eval "$(fasd --init auto)"
+
+#antibody bundle command-not-found
+#antibody bundle common-aliases
+#antibody bundle compleat
+##antibody bundle docker
+#antibody bundle git
+##antibody bundle jsontools
+#antibody bundle pip
+##antibody bundle pylint
+#antibody bundle python
+#antibody bundle virtualenvwrapper
+
+# TODO rest of plugins
+# TODO neat color scheme
+# TODO git repo, branch, vEnv, time of last command, return code in prompt
+
