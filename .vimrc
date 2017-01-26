@@ -536,6 +536,10 @@
     "autocmd FileType python set sw=4 ts=4 expandtab
     " }
 
+    " GoLang {
+    autocmd FileType go set sw=4 ts=4 noexpandtab
+    " }
+
     autocmd FileType c,cpp,java,javascript,python,rust autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " }
 

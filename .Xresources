@@ -18,7 +18,7 @@ urxvt*matcher.button:  1
 urxvt*modifier:     alt
 
 ! Appearance
-urxvt*font:             xft:Sauce Code Powerline:10
+urxvt*font:             xft:Sauce Code Powerline:pixelsize=16
 urxvt*letterSpace:      -1
 
 !  - pseudo transparency

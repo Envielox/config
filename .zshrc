@@ -67,6 +67,7 @@ bindkey '^p' history-substring-search-up
 antibody bundle clvv/fasd # some help with selecting paths
 eval "$(fasd --init auto)"
 
+#antibody bundle tonyseek/oh-my-zsh-virtualenv-prompt
 #antibody bundle command-not-found
 #antibody bundle common-aliases
 #antibody bundle compleat
@@ -76,9 +77,16 @@ eval "$(fasd --init auto)"
 #antibody bundle pip
 ##antibody bundle pylint
 #antibody bundle python
-#antibody bundle virtualenvwrapper
 
 # TODO rest of plugins
 # TODO neat color scheme
 # TODO git repo, branch, vEnv, time of last command, return code in prompt
 
+export WECHALLUSER="Envielox"
+export WECHALLTOKEN="4AA28-99A75-71600-AA205-95043-1A94C"
+
+export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/dev
+source /usr/local/bin/virtualenvwrapper.sh
+
+alias v='fasd -e vim -sif'

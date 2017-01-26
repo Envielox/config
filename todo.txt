@@ -1,0 +1,3 @@
+Add information how long previous command took
+Add information about return code
+printf '\33]50;%s\007' "xft:Sauce Code Powerline:pixelsize=20" 
