@@ -96,9 +96,10 @@
     "Plugin 'vim-ctrlspace/vim-ctrlspace' "provides nice window with a list of
     "buffers
 
-    Plugin 'luochen1990/rainbow'
     "Plugin 'spf13/vim-autoclose' " -- old spf13 version
+
     Plugin 'jiangmiao/auto-pairs' " -- full features version
+
     "Plugin 'Townk/vim-autoclose' " -- lite version
 
     Plugin 'vim-scripts/restore_view.vim'
@@ -184,6 +185,8 @@
     " }
     " Robot {
         Plugin 'mfukar/robotframework-vim'
+    " Lisp {
+        "Plugin 'luochen1990/rainbow'
     " }
 
     call vundle#end()
