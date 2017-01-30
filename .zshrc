@@ -73,7 +73,7 @@ bindkey '^j' history-beginning-search-forward
 bindkey '^p' history-substring-search-up
 
 # z - for jumping around, v - for vim files, autojump for cd's
-antibody bundle clvv/fasd # some help with selecting paths
+antibody bundle 'clvv/fasd kind:path' # some help with selecting paths
 eval "$(fasd --init auto)"
 
 #antibody bundle tonyseek/oh-my-zsh-virtualenv-prompt
@@ -94,11 +94,20 @@ eval "$(fasd --init auto)"
 export WECHALLUSER="Envielox"
 export WECHALLTOKEN="4AA28-99A75-71600-AA205-95043-1A94C"
 
-export WORKON_HOME=$HOME/.virtualenvs
+#export WORKON_HOME=$HOME/.virtualenvs
 #export PROJECT_HOME=$HOME/dev
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 
 alias v='fasd -e vim -sif'
+
+function set_font {
+    printf '\e]710;%s\007' $1
+}
+
+function set_size {
+    set_font "xft:Sauce Code Powerline:pixelsize="$1
+}
+
 alias -g ...="../../"
 alias -g ....="../../../"
 alias -g .....="../../../../"
