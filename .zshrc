@@ -37,7 +37,6 @@ alias ls="ls --color=auto"
 alias la="ls -a --color=auto"
 alias ll="ls -lat --color=auto"
 
-
 export GOPATH=/home/aleksander/.gopath/
 export PATH=${GOPATH//://bin:}/bin:$PATH
 
