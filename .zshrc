@@ -1,7 +1,16 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=100000
+SAVEHIST=100000
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+#setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+#setopt HIST_REDUCE_BLANKS
+#setopt HIST_VERIFY
+
 bindkey -v
 autoload -U colors && colors
 # End of lines configured by zsh-newuser-install
@@ -89,3 +98,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 alias v='fasd -e vim -sif'
+alias -g ...="../../"
+alias -g ....="../../../"
+alias -g .....="../../../../"
+alias -g ......="../../../../../"
+alias -g .......="../../../../../../"

@@ -155,6 +155,9 @@
         Plugin 'pangloss/vim-javascript'
         Plugin 'othree/javascript-libraries-syntax.vim'
     " }
+    " Yaml {
+        Plugin 'stephpy/vim-yaml'
+    " }
     " Garbage can {
     " Writing {
     "   Bundle 'reedes/vim-litecorrect'
