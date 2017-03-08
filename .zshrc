@@ -103,3 +103,5 @@ alias -g ....="../../../"
 alias -g .....="../../../../"
 alias -g ......="../../../../../"
 alias -g .......="../../../../../../"
+export LESS=-MRiS#8j.5
+#alias ssh="TERM=xterm ssh"

@@ -109,6 +109,8 @@
     "Plugin 'kana/vim-textobj-indent'
     "Plugin 'Olical/vim-syntax-expand' " Maaaybe?
 
+    Plugin 'zenbro/mirror.vim'
+
     " General Programming {
        Plugin 'scrooloose/syntastic' " Syntax checker
        Plugin 'A.vim'
@@ -188,6 +190,7 @@
     " }
     " Robot {
         Plugin 'mfukar/robotframework-vim'
+    " }
     " Lisp {
         "Plugin 'luochen1990/rainbow'
     " }
@@ -413,7 +416,7 @@
     set viewoptions=cursor,folds,options,slash,unix
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=5000                    " Store a ton of history (default is 20)
-    set spell                           " Spell checking on
+    "set spell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
 
     " Instead of reverting the cursor to the last position in the buffer, we
