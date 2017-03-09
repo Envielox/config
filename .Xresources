@@ -23,32 +23,29 @@ urxvt*font:             xft:Sauce Code Powerline:pixelsize=16
 !  - pseudo transparency
 ! urxvt*shading:    50
 ! urxvt*transparent:true
- 
-! Default colors setup
-! black + red
-urxvt*color0:      #000000
-urxvt*color1:      #e01010
-! green + yellow
-urxvt*color2:      #00AA00
-urxvt*color3:      #FFFF00
-! blue + purple
-urxvt*color4:      #112037
-urxvt*color5:      #A020F0
-! cyan + white
-urxvt*color6:      #5B5BC7
-urxvt*color7:      #fefefe
-! bright-black + bright-red
-urxvt*color8:      #6a6a6a
-urxvt*color9:      #FF5555
-! bright-green + bright-yellow
-urxvt*color10:     #90EE90
-urxvt*color11:     #ffff2f
-! bright-blue + bright-purple
-urxvt*color12:     #5B5BC7
-urxvt*color13:     #e628ba
-! bright-cyan + bright-white
-urxvt*color14:     #7D7DFB
-urxvt*color15:     #ffffff
+
+! white color palette for urxvt.
+urxvt.background:  #ffffff
+urxvt.foreground:  #474747
+! normal colors: "black", red, green, yellow, blue, magenta, cyan, "white"
+urxvt.color0:      #ebebeb
+urxvt.color1:      #e70015
+urxvt.color2:      #33a400
+urxvt.color3:      #d3a400
+urxvt.color4:      #0070f2
+urxvt.color5:      #ec2cab
+urxvt.color6:      #00bbaa
+urxvt.color7:      #878787
+! bright/bold versions of colors (in the same order)
+urxvt.color8:      #cdcdcd
+urxvt.color9:      #d00007
+urxvt.color10:     #119100
+urxvt.color11:     #be9100
+urxvt.color12:     #005fde
+urxvt.color13:     #d60098
+urxvt.color14:     #00a797
+urxvt.color15:     #282828
+
 
 ! Xterm configuration
 !xterm*faceName: Sauce code powerline

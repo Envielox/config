@@ -64,6 +64,7 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=blue,bold
 antibody bundle zsh-users/zsh-completions
 antibody bundle zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 bindkey '^ ' autosuggest-execute
 bindkey '^l' autosuggest-accept
 antibody bundle zsh-users/zsh-history-substring-search
