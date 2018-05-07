@@ -194,6 +194,12 @@
     " Lisp {
         "Plugin 'luochen1990/rainbow'
     " }
+    " Behave {
+        Plugin 'quentindecock/vim-cucumber-align-pipes'
+    " }
+    " Golang {
+        Plugin 'fatih/vim-go'
+    " }
 
     call vundle#end()
 " }
@@ -386,6 +392,20 @@
         let g:javascript_conceal_arrow_function = "⇒"
 
         let g:used_javascript_libs = 'underscore'
+    " }
+
+    " Auto-Pairs {
+        "let g:AutoPairsShortcutToggle = '<M-p>'
+        let g:AutoPairsShortcutFastWrap = '<C-L>'
+        "let g:AutoPairsShortcutJump = '<M-n>'
+        "let g:AutoPairsShortcutBackInsert = '<M-b>'
+    " }
+
+    " Syntastic {
+        let g:syntastic_always_populate_loc_list = 0
+        let g:syntastic_auto_loc_list = 0
+        let g:syntastic_check_on_open = 1
+        let g:syntastic_check_on_wq = 0
     " }
 
 " }
@@ -627,3 +647,4 @@
 
 " }
 
+let did_meta_escape = 1

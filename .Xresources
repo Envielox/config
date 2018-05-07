@@ -8,6 +8,9 @@ urxvt*urgentOnBell:     true
 ! urxvt*borderLess:       true
 ! urxvt*internalBorder:       0
 ! urxvt*externalBorder:       0
+urxvt*scrollTtyOutput:   false
+urxvt*scrollWithBuffer:  true
+urxvt*scrollTtyKeypress: true
 
 ! Extensions
 urxvt*perl-lib:        /usr/lib/urxvt/perl/
@@ -27,7 +30,7 @@ urxvt*letterSpace:      -1
 
 ! white color palette for urxvt.
 urxvt.background:  #ffffff
-urxvt.foreground:  #474747
+urxvt.foreground:  #000000
 ! normal colors: "black", red, green, yellow, blue, magenta, cyan, "white"
 urxvt.color0:      #ebebeb
 urxvt.color1:      #e70015

