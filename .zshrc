@@ -34,6 +34,8 @@ bindkey '^h' backward-delete-char
 bindkey '^?' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 
 #TODO search from already entered words
 
@@ -64,6 +66,10 @@ RPROMPT="[%{$fg_no_bold[green]%}%?%{$reset_color%}]"
 alias ls="ls --color=auto"
 alias la="ls -a --color=auto"
 alias ll="ls -lat --color=auto"
+
+function font_size {
+    printf '\e]710;%s\007' "xft:Sauce Code Powerline:pixelsize=$1"
+}
 
 export GOPATH=/home/aleksander/.gopath/
 export PATH=${GOPATH//://bin:}/bin:$PATH
@@ -117,6 +123,7 @@ export WECHALLTOKEN="4AA28-99A75-71600-AA205-95043-1A94C"
 #export PROJECT_HOME=$HOME/dev
 #source /usr/local/bin/virtualenvwrapper.sh
 
+alias l='ls'
 alias v='fasd -e vim -sif'
 
 function set_font {
@@ -127,10 +134,10 @@ function set_size {
     set_font "xft:Sauce Code Powerline:pixelsize="$1
 }
 
-alias -g ...="../../"
-alias -g ....="../../../"
-alias -g .....="../../../../"
-alias -g ......="../../../../../"
-alias -g .......="../../../../../../"
+alias uu="cd ../../"
+alias uuu="cd ../../../"
+alias uuuu="cd ../../../../"
+alias uuuuu="cd ../../../../../"
+
 export LESS=-MRiS#8j.5
-#alias ssh="TERM=xterm ssh"
+alias cdg='cd `git rev-parse --show-toplevel 2> /dev/null`'
