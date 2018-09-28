@@ -134,6 +134,7 @@ function set_size {
     set_font "xft:Sauce Code Powerline:pixelsize="$1
 }
 
+alias u="cd ../"
 alias uu="cd ../../"
 alias uuu="cd ../../../"
 alias uuuu="cd ../../../../"
@@ -141,3 +142,6 @@ alias uuuuu="cd ../../../../../"
 
 export LESS=-MRiS#8j.5
 alias cdg='cd `git rev-parse --show-toplevel 2> /dev/null`'
+
+alias sudo='sudo '
+alias cal='ncal -M -b'

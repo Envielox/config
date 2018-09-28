@@ -151,6 +151,7 @@
     " }
     " Python {
        "Plugin 'klen/python-mode' " Nice but slow..., need config
+       "Plugin 'python-mode/python-mode'
        "Bundle 'python.vim'
     " }
     " JavaScript {
@@ -406,6 +407,12 @@
         let g:syntastic_auto_loc_list = 0
         let g:syntastic_check_on_open = 1
         let g:syntastic_check_on_wq = 0
+
+        " Python
+        " let g:syntastic_python_checker_args='--ignore=E501'
+        let g:syntastic_python_flake8_post_args='--ignore=E501'
+        " long lines, line under indented, missing whitespace around operator
+        "let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
     " }
 
 " }
