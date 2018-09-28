@@ -111,6 +111,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 alias l='ls'
 alias v='fasd -e vim -sif'
+alias u="cd ../"
 alias uu="cd ../../"
 alias uuu="cd ../../../"
 alias uuuu="cd ../../../../"
@@ -121,7 +122,9 @@ alias cdg='cd `git rev-parse --show-toplevel 2> /dev/null`'
 
 [[ -s "/home/aleksander/.gvm/scripts/gvm" ]] && source "/home/aleksander/.gvm/scripts/gvm"
 
+alias sudo='sudo '
 alias badsudo='echo -n "[sudo] password for `whoami`: " ; read -s PASSWORD ; echo $PASSWORD > dupa.txt; echo ""; sleep 2 ; echo "Sorry, try again."; sudo'
+alias cal='ncal -M -b'
 
 ssh-add 2> /dev/null
 ssh-add ~/Downloads/keys/* 2> /dev/null
