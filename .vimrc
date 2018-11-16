@@ -109,6 +109,10 @@
     "Plugin 'kana/vim-textobj-indent'
     "Plugin 'Olical/vim-syntax-expand' " Maaaybe?
 
+    Plugin 'kana/vim-textobj-user'
+    Plugin 'sgur/vim-textobj-parameter' " a, for parameters
+    Plugin 'Julian/vim-textobj-variable-segment' " av for snake_case_segments
+
     Plugin 'zenbro/mirror.vim'
 
     " General Programming {
@@ -138,7 +142,7 @@
     "       Bundle 'SirVer/ultisnips'
     "       Bundle 'honza/vim-snippets'
     "   elseif count(g:spf13_bundle_groups, 'neocomplcache')
-    "       Bundle 'Shougo/neocomplcache'
+    "       Bundle 'Shougo/neocomplcache' " Discontinued in favor of deoplete
     "       Bundle 'Shougo/neosnippet'
     "       Bundle 'Shougo/neosnippet-snippets'
     "       Bundle 'honza/vim-snippets'
