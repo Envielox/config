@@ -58,6 +58,13 @@
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
 
+    nnoremap K i<CR><Esc>
+
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-l> <C-w>l
+
 " }
 
 " Plugins {
@@ -67,6 +74,7 @@
         filetype off
         set rtp+=$HOME/.vim/bundle/Vundle.vim
         call vundle#rc()
+        " TODO maybe migrate to vim-plug
     " }
 
     call vundle#begin()
@@ -77,14 +85,24 @@
     "Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'ctrlpvim/ctrlp.vim'
     "Plugin 'tacahiroy/ctrlp-funky'
-    Plugin 'rking/ag.vim'
+    "Plugin 'rking/ag.vim'   " deprecated
+    Plugin 'mileszs/ack.vim'   " deprecated
+    "Plugin 'smeggingsmegger/ag.vim'
     "Plugin 'Shougo/unite.vim' " TODO ogarnąć to (zastępuje wszystko O.o)
     Plugin 'mbbill/undotree'
     Plugin 'osyo-manga/vim-over' " Hls durring writing substitues
     Plugin 'tpope/vim-abolish.git' " Conversions between camelCase, snake_case
-    Plugin 'mhinz/vim-signify' " Add/remove/changed markers on the side
     Plugin 'tpope/vim-fugitive' " Git stuff
     " TODO przeczytać manual do fugitive
+
+    " Add/remove/changed markers on the side
+    if has('nvim') || has('patch-8.0.902')
+      Plugin 'mhinz/vim-signify'
+    else
+      Plugin 'mhinz/vim-signify', { 'branch': 'legacy' }
+    endif
+
+
     Plugin 'nathanaelkane/vim-indent-guides' " Colors line indents
     Plugin 'vim-airline/vim-airline' " Cool status line
     Plugin 'vim-airline/vim-airline-themes'
@@ -93,6 +111,7 @@
     Plugin 'b3niup/numbers.vim'
 
     "Plugin 'Lokaltog/vim-easymotion' " TODO też ogarnąć
+    "Plugin 'unblevable/quick-scope' " Podświetla znaki do f-motion
     "Plugin 'vim-ctrlspace/vim-ctrlspace' "provides nice window with a list of
     "buffers
 
@@ -101,8 +120,10 @@
     Plugin 'jiangmiao/auto-pairs' " -- full features version
 
     "Plugin 'Townk/vim-autoclose' " -- lite version
+    Plugin 'AndrewRadev/sideways.vim' " -- move elements sideways
 
     Plugin 'vim-scripts/restore_view.vim'
+    Plugin 'vim-scripts/regreplop.vim'
     "Plugin 'vim-scripts/sessionman.vim'
     "Plugin 'godlygeek/csapprox' " Allows using gvim colorschemes in terminal
     "Plugin 'kana/vim-textobj-user'
@@ -115,12 +136,25 @@
 
     Plugin 'zenbro/mirror.vim'
 
+    Plugin 'dahu/vim-fanfingtastic'     " F's can go to next line
+    Plugin 'tpope/vim-repeat'           " . Works with compound commands
+    Plugin 'tpope/vim-unimpaired'       " Some cool mappings
+    Plugin 'tpope/vim-speeddating'      " <C-a> works for dates
+    "Plugin 'google/vim-searchindex'     " Show search summary
+    " Plugin 'ConradIrwin/vim-bracketed-paste'   " No need for set paste
+    Plugin 'chrisbra/vim-diff-enhanced' " Better algorithm for diffing
+    " Plugin 'kana/vim-smartword'       " Smarter word detection?
+    " Plugin 'sk1418/QFGrep'            " Ag on quickfix window
+    "
+
+
     " General Programming {
        Plugin 'scrooloose/syntastic' " Syntax checker
        Plugin 'A.vim'
        "Plugin 'mattn/webapi-vim' " Using webapi in vim?
        "Plugin 'mattn/gist-vim' " What are gists?
        Plugin 'scrooloose/nerdcommenter' " Commenting source code
+       "Plugin 'tpope/vim-commentary' " Alternative to commenting
        Plugin 'godlygeek/tabular' " Aligning text
        if executable('ctags')
            Plugin 'majutsushi/tagbar' " Viewing functions and methods
@@ -129,6 +163,11 @@
     " }
     " Snippets & AutoComplete {
         "Plugin 'Shougo/neocomplete.vim'
+        if !filereadable(expand('~/.at_google'))
+          Plugin 'Valloric/YouCompleteMe'
+        endif
+        "Plugin 'SirVer/ultisnips'
+        Plugin 'honza/vim-snippets'
 
     "   if count(g:spf13_bundle_groups, 'snipmate')
     "       Bundle 'garbas/vim-snipmate'
@@ -174,6 +213,7 @@
     " }
     " Haskell {
         " TODO ogarnąć to
+    "   NeoBundle 'dag/vim2hs'
     "   Bundle 'travitch/hasksyn'
     "   Bundle 'dag/vim2hs'
     "   Bundle 'Twinside/vim-haskellConceal'
@@ -417,8 +457,51 @@
         let g:syntastic_python_flake8_post_args='--ignore=E501'
         " long lines, line under indented, missing whitespace around operator
         "let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
+        let g:syntastic_cpp_compiler_options='-std=c++11'
     " }
 
+    " EnhancedDiff {
+        let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+        "set diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+    " }
+
+    " YouCompleteMe {
+        let g:ycm_confirm_extra_conf=0  " Don't ask about loading ycm_conf
+    " }
+
+    " Ultisnips {
+        " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+        let g:UltiSnipsExpandTrigger="<c-j>"
+        "let g:UltiSnipsListSnippets=""
+        let g:UltiSnipsJumpForwardTrigger="<c-j>"
+        let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+        " If you want :UltiSnipsEdit to split your window.
+        let g:UltiSnipsEditSplit="vertical"
+
+    " }
+
+    " RegReplOp {
+        nmap s <Plug>ReplaceMotion
+        nmap S <Plug>ReplaceLine
+        vmap s <Plug>ReplaceVisual
+    " }
+
+    " Ack {
+    cnoreabbrev ag Ack
+    cnoreabbrev aG Ack
+    cnoreabbrev Ag Ack
+    cnoreabbrev AG Ack
+    if executable('ag')
+      let g:ackprg = 'ag --vimgrep --smart-case'
+    endif
+    " }
+  
+    " Sideways {
+      nnoremap <C-j> :SidewaysLeft<CR>
+      nnoremap <C-k> :SidewaysRight<CR>
+  
+    " }
 " }
 
 " General {
@@ -426,7 +509,8 @@
     " if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
     " endif
-    filetype plugin indent on   " Automatically detect file types.
+    " Moved to the very end of file
+    "filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     set conceallevel=1          " Conceal some words
     set concealcursor=          " Don't conceal on line with cursor
@@ -449,6 +533,7 @@
     set history=5000                    " Store a ton of history (default is 20)
     "set spell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
+    "set diffopt+=internal,algorithm:patience " Use better diff algorithm
 
     " Instead of reverting the cursor to the last position in the buffer, we
     " set it to the first line when editing a git commit message
@@ -491,6 +576,8 @@
     set tabpagemax=15
     set showmode
     set cursorline
+    set lazyredraw                   " Don't redraw while running macros
+    set completeopt-=preview         " Don't open scratch window on completion
 
     " TODO ogarnąć to sobie
     "highlight clear SignColumn      " SignColumn should match background
@@ -519,6 +606,7 @@
     set linespace=0                 " No extra spaces between rows
     set number                      " Line numbers on
     set showmatch                   " Show matching brackets/parenthesis
+    "set matchpairs+=<:>
     set incsearch                   " Find as you type search
     set hlsearch                    " Highlight search terms
     set winminheight=0              " Windows can be 0 line high
@@ -532,6 +620,7 @@
     set foldenable                  " Auto fold code
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+    set formatoptions+=j            " Removes comment leader when joining lines
 
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
@@ -658,4 +747,7 @@
 
 " }
 
+source ~/.vimrc.local
+
 let did_meta_escape = 1
+filetype plugin indent on   " Automatically detect file types.
