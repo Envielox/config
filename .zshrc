@@ -82,30 +82,38 @@ function preexec() {
 
 function precmd() {
   if [ ! -z $timer ]; then
-    timer_diff=$(($(msec_now) - $timer))
-    timer_sec=$(($timer / 1000))
-    unset timer
+    time_end=$(msec_now)
+    timer_diff=$(($time_end - $timer))
+
 
     if [ "$timer_diff" -le "1000" ]
     then
+      unset timer
       return
     fi
 
-    echo "Started on: \t" $(date --date="@${timer_sec}")
-    echo "Ended on: \t" $(date)
-    echo "Time taken: \t" $(show_time $timer_diff)
+    echo "Started on: \t" $(show_date_msec $timer)
+    echo "Ended on: \t" $(show_date_msec $time_end)
+    echo "Time taken: \t" $(show_time_msec $timer_diff)
+    unset timer
   fi
 }
 
-function show_time {
+function show_date_msec {
+  echo $(date "+%H:%M:%S" --date="@$(($1 / 1000))").$(printf "%03d" $(($1 % 1000)))
+}
+
+function show_time_msec {
   timer=$1
   msec=$(($timer % 1000))
   timer=$(($timer / 1000))
   sec=$(($timer% 60))
   timer=$(($timer / 60))
   min=$(($timer % 60))
+  timer=$(($timer / 60))
+  hour=$(($timer % 60))
 
-  printf "%02d:%02d.%03d" $min $sec $msec
+  printf "%02d:%02d:%02d.%03d" $hour $min $sec $msec
 }
 
 export C=~
@@ -263,7 +271,7 @@ function replace_with_alias() {
 }
 
 
-alias prod='gcert -s -m usps-testbed,bm-testbed' # -m borg-test,usps-testbed,bm-testbed' # prodaccess -a -s
+alias prod='gcert -s -m usps-testbed,bm-testbed,borg-test'
 alias staging_gcloud='CLOUDSDK_API_CLIENT_OVERRIDES_COMPUTE=staging_v1 TERM=xterm /google/data/ro/teams/cloud-sdk/gcloud'
 alias cl='build_cleaner ... && $(replace_with_alias "$(fc -ln -1)")'
 alias bc='build_cleaner ...'
@@ -277,6 +285,7 @@ alias -g bba='blaze build ...'
 
 # regenerate using  TERMINFO=~/.hgterm tic -x ~/.hgterminfo
 alias hg='TERMINFO=~/.hgterm hg'
+alias hup='hg fix && hg uploadchain'
 
 alias N='notify-send $( [ $? -eq 0 ] && echo "Success" || echo "Failure" )'
 
@@ -285,7 +294,7 @@ alias admin_session='SPECIAL="$fg_no_bold[red]ADMIN$reset_color " /google/data/r
 alias test_zsh='SPECIAL="$fg_no_bold[red]ADMIN$reset_color " zsh'
 
 alias bm='cd $C/borg/bare_metal'
-alias bo='cd $C/borg/slave/offload'
+alias bo='cd $C/borg/borglet/offload'
 alias exp='cd $C/experimental/users/abulanowski'
 
 function blaze-bin {
