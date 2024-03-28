@@ -49,3 +49,5 @@ bind _ resize max
 hardstatus on
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d-%m-%Y %{W}%c %{g}]'
+
+bind x info  # disables screen locking

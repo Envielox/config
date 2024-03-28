@@ -14,7 +14,7 @@ setopt HIST_IGNORE_SPACE
 bindkey -v
 autoload -U colors && colors
 # End of lines configured by zsh-newuser-install
-zstyle :compinstall filename '/home/envielox/.zshrc'
+zstyle :compinstall filename '/usr/local/google/home/abulanowski/.zshrc'
 
 autoload -Uz compinit && compinit
 # End of lines added by compinstall
@@ -165,9 +165,6 @@ function font_size {
     printf '\e]710;%s\007' "xft:Sauce Code Powerline:pixelsize=$1"
 }
 
-export GOPATH=/home/aleksander/.gopath/
-export PATH=${GOPATH//://bin:}/bin:$PATH
-
 export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
 
 # Antibody Instalation
@@ -207,10 +204,6 @@ eval "$(fasd --init auto)"
 
 # TODO rest of plugins
 # TODO neat color scheme
-# TODO git repo, branch, vEnv, time of last command, return code in prompt
-
-export WECHALLUSER="Envielox"
-export WECHALLTOKEN="4AA28-99A75-71600-AA205-95043-1A94C"
 
 #export WORKON_HOME=$HOME/.virtualenvs
 #export PROJECT_HOME=$HOME/dev

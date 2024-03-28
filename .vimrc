@@ -65,6 +65,10 @@
     nnoremap <C-k> <C-w>k
     nnoremap <C-l> <C-w>l
 
+    " Goes to the other side of next selection (inclusive)
+    nnoremap go gvo<ESC>
+    " Goes to the end of the nearest selection (inclusive)
+    nnoremap ge gn<ESC>
 " }
 
 " Plugins {
@@ -92,7 +96,8 @@
     Plugin 'mbbill/undotree'
     Plugin 'osyo-manga/vim-over' " Hls durring writing substitues
     Plugin 'tpope/vim-abolish.git' " Conversions between camelCase, snake_case
-    Plugin 'tpope/vim-fugitive' " Git stuff
+    " Disabled for google
+    "Plugin 'tpope/vim-fugitive' " Git stuff
     " TODO przeczytać manual do fugitive
 
     " Add/remove/changed markers on the side
@@ -596,7 +601,7 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        set statusline+=%{fugitive#statusline()} " Git Hotness
+        "set statusline+=%{fugitive#statusline()} " Git Hotness
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
